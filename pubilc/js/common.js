@@ -1,4 +1,4 @@
-define(['jquery','cookie'],function($){
+define(['jquery','template','cookie'],function($,template){
 	/*控制左侧菜单的展开与折叠*/
 	//NProgress.start();
 	//NProgress.done();
@@ -33,11 +33,20 @@ define(['jquery','cookie'],function($){
 		location.href='/main/login';
 	}
 
-//	获取登录信息
+	//	获取登录信息
 	var loginInfo= $.cookie('loginInfo');
-	var info=JSON.parse(loginInfo);
-	$('.profile img').attr('src',info.tc_avatar);
-	$('.profile h4').html(info.tc_name);
+	var info=loginInfo?JSON.parse(loginInfo):{};
+	//登陆模板之后的侧边栏模板
+	var tpls='<div class="avatar img-circle"><img src="{{tc_avatar}}"></div><h4>{{tc_name}}</h4>';
+	/*绑定模板与数据*/
+	var html=template.render(tpls,info);
+	/*放入div*/
+	$('.aside .profile').html(html);
+
+
+    //同步首页的登陆头像和名字
+    //$('.profile img').attr('src',info.tc_avatar);
+    //$('.profile h4').html(info.tc_name);
 });
 
 
