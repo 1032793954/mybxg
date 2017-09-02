@@ -5,7 +5,7 @@ require.config({
         cookie:'/pubilc/assets/jquery-cookie/jquery.cookie',
         template:'/pubilc/assets/artTemplate/template-web',
         common:'../js/common',
-        login:'../js/login'
-
+        login:'../js/login',
+        teacherlist:'../js/teacherlist'
     }
 });
