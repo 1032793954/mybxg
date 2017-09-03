@@ -1,11 +1,19 @@
 require.config({
     baseUrl:'/pubilc/assets',
     paths:{
-        jquery:'/pubilc/assets/jquery/jquery',
+        jquery:'jquery/jquery',
         cookie:'/pubilc/assets/jquery-cookie/jquery.cookie',
         template:'/pubilc/assets/artTemplate/template-web',
+        bootstrap:'/pubilc/assets/bootstrap/js/bootstrap.min',
         common:'../js/common',
         login:'../js/login',
-        teacherlist:'../js/teacherlist'
+        index:'../js/index',
+        teacherlist:'../js/teacherlist',
+        util:'../js/util'
+    },
+    shim:{
+        bootstrap:{
+            deps:['jquery']
+        }
     }
 });
